@@ -1,3 +1,4 @@
+//pop up form START
 const btnAdd = document.querySelector(".add");
 const myForm = document.querySelector(".addNew-Form")
 const form = document.querySelector("form");
@@ -17,3 +18,6 @@ myForm.addEventListener("click",function(e){
     if(e.target == myForm)
         closeForm();
 });
+
+// pop up form END
+
