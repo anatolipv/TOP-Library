@@ -1,0 +1,102 @@
+@font-face{
+    font-family: NorseBold;
+    src: url(./Norse-Bold.otf);
+}
+:root{
+    font-size: 20px;
+}
+*{
+    box-sizing: border-box;
+    font-family: NorseBold;
+    text-align: center;
+}
+
+body{
+    margin: 0px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+.counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conter p{
+    font-size: 2rem;
+}
+
+.button-holder{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    gap: 1rem;
+}
+
+.add{
+    height: 100px;
+    width: 100px;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    font-size: 1rem;
+    background-color: rgb(45, 226, 45);
+    content: "Add New";
+}
+
+
+.add:hover{
+    
+    color: rgb(45, 226, 45) ;
+    border: solid 5px rgb(45, 226, 45);
+    background-color: white;
+    
+    
+}
+
+.add:active{
+    background-color:rgb(45, 226, 45,0.2)  ;
+}
+
+
+
+.addNew-Form{
+    top: 0px;
+    display: none;
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    background-color: white;
+    border: solid 5px rgb(45, 226, 45);
+    padding: 1rem;
+    border-radius: 1rem;
+}
