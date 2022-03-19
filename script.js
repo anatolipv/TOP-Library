@@ -25,77 +25,52 @@ myForm.addEventListener("click",function(e){
 
 let myLybrary =[];
 
-
-
-
-function Book () {
-    this.title ="title",
-    this.author = "author",
-    this.pages= "0",
-    this.readStatus = false;
+function Book (title,author,pages,readStatus) {
+    this.title,
+    this.author ,
+    this.pages,
+    this.readStatus;
 }
 
-function addBookToLibrary(a) {
+function addBookToLibraryTest(a) {
     myLybrary.push(a);
 }
 
-
-
-
 function showBooksInLibrary(){
+    const content = document.querySelector(".content-holder");
+    content.textContent="";
     for (let i = 0; i < myLybrary.length; i++) {
         displayBook(myLybrary[i]);
         
     }
 }
-
 // test books
-let test1 = new Book();
-test1.title="Harry Potter 1";
-test1.pages="1000";
-test1.author="JK Roling";
-test1.readStatus=true;
+// let test1 = new Book();
+// test1.title="Harry Potter 1";
+// test1.pages="1000";
+// test1.author="JK Roling";
+// test1.readStatus=true;
 
-let test2 = new Book();
-test2.title="Harry Potter 1";
-test2.pages="1000";
-test2.author="JK Roling";
-test2.readStatus=true;
+// let test2 = new Book();
+// test2.title="Harry Potter 2";
+// test2.pages="1500";
+// test2.author="JK Roling";
+// test2.readStatus=true;
 
-addBookToLibrary(test1);
-addBookToLibrary(test2);
+// let test3 = new Book();
+// test3.title="Harry Potter 3";
+// test3.pages="1500";
+// test3.author="JK Roling";
+// test3.readStatus=true;
 
-// // console.log(myLybrary);
-
-const btnSubmit = document.querySelector(".submit");
-const inTitle   = document.querySelector("#title");
-const inAuthor = document.querySelector("#author");
-const inPages = document.querySelector("#pages");
-const inStatus = document.querySelector("#read");
-
-
-    
-
-    
-btnSubmit.addEventListener("click",()=>{
-    let newBook= new Book();
-    newBook.title = inTitle.value;
-    newBook.author= inAuthor.value;
-    newBook.pages = inPages.value;
-    // newBook.readStatus=inStatus.value;
-    addBookToLibrary(newBook);
-    console.log(myLybrary);
-    
-});
-
-
-
-
+// addBookToLibraryTest(test1);
+// addBookToLibraryTest(test2);
+// addBookToLibraryTest(test3);
 
 
 function displayBook (a){
 
-const content = document.querySelector(".content-holder")
+const content = document.querySelector(".content-holder");
 const div = document.createElement("div");
 const h5 = document.createElement("h5")
 const h6 = document.createElement("h6");
@@ -106,7 +81,6 @@ const button =document.createElement("button")
 
 button.classList.add("remove");
 button.textContent="REMOVE FROM LIBRARY"
-
 
 h5.textContent=a.title;
 div.appendChild(h5);
@@ -130,7 +104,33 @@ content.appendChild(div);
 
 }
 
-showBooksInLibrary();
+const submit = document.querySelector(".submit");
+
+submit.addEventListener("click",(e)=>{
+    e.preventDefault();
+    let inTitle = document.querySelector("#title");
+    let inAuthor = document.querySelector("#author");
+    let inPages = document.querySelector("#pages");
+
+    if(inAuthor.value=="" || inTitle.value=="" || inPages.value=="")
+        return false;
+    else{
+        let newBook = new Book()
+        newBook.title=inTitle.value;
+        newBook.author=inAuthor.value;
+        newBook.pages=inPages.value;
+
+        // inTitle.value="";
+        // inAuthor.value="";
+        // inPages.value="";
+        form.reset();
+        addBookToLibraryTest(newBook);
+        showBooksInLibrary();
+        closeForm();
+    }
+});
+
+
 
 
 
