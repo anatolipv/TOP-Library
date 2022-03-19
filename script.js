@@ -46,31 +46,6 @@ function showBooksInLibrary(){
     updateCounters();
 }
 
-
-// test books
-// let test1 = new Book();
-// test1.title="Harry Potter 1";
-// test1.pages="1000";
-// test1.author="JK Roling";
-// test1.readStatus=true;
-
-// let test2 = new Book();
-// test2.title="Harry Potter 2";
-// test2.pages="1500";
-// test2.author="JK Roling";
-// test2.readStatus=true;
-
-// let test3 = new Book();
-// test3.title="Harry Potter 3";
-// test3.pages="1500";
-// test3.author="JK Roling";
-// test3.readStatus=true;
-
-// addBookToLibraryTest(test1);
-// addBookToLibraryTest(test2);
-// addBookToLibraryTest(test3);
-
-
 function displayBook (a){
 
 const content = document.querySelector(".content-holder");
@@ -120,7 +95,9 @@ input.addEventListener("change",()=>{
         }
 }) ;   
 input.setAttribute("type","checkbox");
+
 label.appendChild(input);
+
 div.appendChild(label);
 
 div.appendChild(button);
@@ -132,6 +109,8 @@ content.appendChild(div);
 }
 
 const submit = document.querySelector(".submit");
+
+// submit button 
 
 submit.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -151,9 +130,7 @@ submit.addEventListener("click",(e)=>{
             newBook.readStatus=true;
         else
             newBook.readStatus=false;
-        // inTitle.value="";
-        // inAuthor.value="";
-        // inPages.value="";
+       
         form.reset();
         addBookToLibraryTest(newBook);
         showBooksInLibrary();
@@ -178,10 +155,6 @@ counterReadBooks.textContent=checked;
 
 let counterToReadBooks = document.querySelector(".booksToRead");
 counterToReadBooks.textContent = counterAllBooks.textContent - counterReadBooks.textContent;
-
-
-
-
 }
 
 
