@@ -44,6 +44,8 @@ function showBooksInLibrary(){
         
     }
 }
+
+
 // test books
 // let test1 = new Book();
 // test1.title="Harry Potter 1";
@@ -81,6 +83,10 @@ const button =document.createElement("button")
 
 button.classList.add("remove");
 button.textContent="REMOVE FROM LIBRARY"
+button.addEventListener("click",function(){
+    myLybrary.splice(myLybrary.indexOf(a),1);
+    showBooksInLibrary();
+});
 
 h5.textContent=a.title;
 div.appendChild(h5);
@@ -91,7 +97,25 @@ div.appendChild(h6);
 p.textContent=a.pages;
 div.appendChild(p);
 
-label.textContent="read";
+label.textContent="read status";
+if(a.readStatus){
+    input.checked=true;
+}
+
+else    {
+    input.checked=false;
+    div.classList.add("redborder");
+}
+input.addEventListener("change",()=>{
+    if(input.checked){
+        a.readStatus=true;
+        div.classList.remove("redborder");}
+    else
+        {
+            a.readStatus=false;
+            div.classList.add("redborder");
+        }
+}) ;   
 input.setAttribute("type","checkbox");
 label.appendChild(input);
 div.appendChild(label);
@@ -111,6 +135,7 @@ submit.addEventListener("click",(e)=>{
     let inTitle = document.querySelector("#title");
     let inAuthor = document.querySelector("#author");
     let inPages = document.querySelector("#pages");
+    let readStatus = document.querySelector("#read")
 
     if(inAuthor.value=="" || inTitle.value=="" || inPages.value=="")
         return false;
@@ -119,7 +144,10 @@ submit.addEventListener("click",(e)=>{
         newBook.title=inTitle.value;
         newBook.author=inAuthor.value;
         newBook.pages=inPages.value;
-
+        if(readStatus.checked)
+            newBook.readStatus=true;
+        else
+            newBook.readStatus=false;
         // inTitle.value="";
         // inAuthor.value="";
         // inPages.value="";
@@ -129,6 +157,9 @@ submit.addEventListener("click",(e)=>{
         closeForm();
     }
 });
+
+
+
 
 
 

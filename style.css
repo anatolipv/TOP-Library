@@ -143,6 +143,8 @@ body{
     border-radius: 1rem;
     border: solid 2px rgb(45, 226, 45);
     gap: 5px;
+    border-left: 1rem solid rgb(45, 226, 45);
+    
     
     
 }
@@ -187,4 +189,8 @@ body{
 .remove:active{
     color:white;
     background-color:  rgb(245, 63, 39);
+}
+
+.redborder{
+    border-left: 1rem solid red;
 }
