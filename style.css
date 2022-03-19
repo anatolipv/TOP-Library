@@ -40,15 +40,17 @@ body{
     align-items: center;
 }
 
-.conter p{
+.counter p{
     font-size: 2rem;
+    margin: 0px;
+    padding: 0px;
 }
 
 .button-holder{
     display: flex;
     flex-wrap: wrap-reverse;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 1rem 2rem;
     gap: 1rem;
 }
@@ -93,6 +95,7 @@ body{
 
 .form{
     display: grid;
+    width: min(400px,80%);
     grid-template-columns: 1fr;
     gap: 1rem;
     background-color: white;
@@ -139,10 +142,12 @@ body{
     flex-direction: column;
     border-radius: 1rem;
     border: solid 2px rgb(45, 226, 45);
+    gap: 5px;
+    
     
 }
 
-.book-card h5{
+.book-card h5,.book-card h6{
     margin: 0px;
     padding: 0px;
     
@@ -170,6 +175,7 @@ body{
     padding: 4px;
     width:150px;
     align-self: center;
+   
 }
 
 .remove:hover{

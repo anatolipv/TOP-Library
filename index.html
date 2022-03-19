@@ -34,7 +34,7 @@
     <div class="content-holder">
         <div class="book-card">
             <h5 >Book asfddddddddddddddddddddddddddddddddTitle</h5>
-            <p>Author autrhor</p>
+            <h6>Author autrhor</h6>
             
             <p>Pages:123</p>
             <label for="read-card">read
@@ -49,13 +49,13 @@
    <div class="addNew-Form">
        <form class="form" action="">
            <h3>Add new book</h3>
-           <input type="text" placeholder="Title">
-           <input type="text" placeholder="Author">
-           <input type="text" placeholder="Pages">
+           <input type="text" id="title" placeholder="Title" required autocomplete="off">
+           <input type="text" id="author" placeholder="Author"required autocomplete="off">
+           <input type="text" id="pages" placeholder="Pages" required autocomplete="off">
            <label for="read"> Have you read it?
-               <input type="checkbox" inactive>
+               <input type="checkbox" id="read" inactive>
            </label>
-           <button type="submit">add</button>
+           <button class="submit" type="submit">add</button>
        </form>
    </div>
 </body>
