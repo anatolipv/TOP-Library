@@ -43,6 +43,7 @@ function showBooksInLibrary(){
         displayBook(myLybrary[i]);
         
     }
+    updateCounters();
 }
 
 
@@ -109,11 +110,13 @@ else    {
 input.addEventListener("change",()=>{
     if(input.checked){
         a.readStatus=true;
-        div.classList.remove("redborder");}
+        div.classList.remove("redborder");
+        updateCounters()}
     else
         {
             a.readStatus=false;
-            div.classList.add("redborder");
+            div.classList.add("redborder")
+            updateCounters();
         }
 }) ;   
 input.setAttribute("type","checkbox");
@@ -154,17 +157,32 @@ submit.addEventListener("click",(e)=>{
         form.reset();
         addBookToLibraryTest(newBook);
         showBooksInLibrary();
+        
         closeForm();
     }
 });
 
 
+//counters
+function updateCounters(){
+let counterAllBooks = document.querySelector(".booksCounter");
+counterAllBooks.textContent=myLybrary.length;
+
+let counterReadBooks = document.querySelector(".booksAlreadyRead");
+let checked =0;
+for (let i = 0; i < myLybrary.length; i++) {
+    if(myLybrary[i].readStatus)
+        checked++;   
+}
+counterReadBooks.textContent=checked;
+
+let counterToReadBooks = document.querySelector(".booksToRead");
+counterToReadBooks.textContent = counterAllBooks.textContent - counterReadBooks.textContent;
 
 
 
 
-
-
+}
 
 
 
